@@ -1,16 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Country } from '../../interfaces/country.interface';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
-  styles: [
-  ]
+  styles: [ ]
 })
-export class PorPaisComponent implements OnInit {
+export class PorPaisComponent {
 
-  constructor() { }
+  public termino: string = '';
+  public hasError: boolean = false;
+  public countries: Country[] = [];
 
-  ngOnInit(): void {
+  constructor(
+    private _countryService: CountryService
+  ) { }
+  
+  buscar( termino: string) {
+    this.hasError = false;
+    this.termino = termino;
+    
+    this._countryService.searchCountry(this.termino)
+    .subscribe( countries => {
+      console.log( countries );
+      this.countries = countries;
+    },(err) => {
+      this.hasError = true;
+      this.countries = [];
+    });
+  }
+
+  sugerencias( termino: string ) {
+    this.hasError = false;
+    // this.termino = 
   }
 
 }
