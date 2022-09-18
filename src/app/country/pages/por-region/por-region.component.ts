@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-por-region',
@@ -6,11 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class PorRegionComponent implements OnInit {
+export class PorRegionComponent {
+
+  regions: string[] = ['EU', 'EFTA', 'CARICOM', 'PA', 'AU', 'USAN', 'EEU', 'AL', 'ASEAN', 'CAIS', 'CEFTA', 'NAFTA', 'SAARC',];
+  activeRegion: string = '';
+
 
   constructor() { }
 
-  ngOnInit(): void {
+  activedRegion( region: string ) {
+    this.activeRegion = region;
+  }
+
+  getClassCSS( region: string ): string {
+    return (region === this.activeRegion) ? 'btn btn-primary' : 'btn btn-outline-primary';
   }
 
 }
