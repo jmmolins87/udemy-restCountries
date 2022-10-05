@@ -1,9 +1,11 @@
-<form (ngSubmit)="buscar()" autocomplete="off">
-    <input
-        [(ngModel)]="termino"
-        (input)="pressKey()"
-        type="text" 
-        name="term"
-        class="form-control"
-        [placeholder]="placeholder">
-</form>
+<div class="animate__animated animate__fadeIn">
+    <form (ngSubmit)="buscar()" autocomplete="off">
+        <input
+            [(ngModel)]="termino"
+            (input)="pressKey()"
+            type="text" 
+            name="term"
+            class="form-control"
+            [placeholder]="placeholder">
+    </form>
+</div>

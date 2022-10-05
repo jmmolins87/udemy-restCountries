@@ -24,7 +24,6 @@ export class PorCapitalComponent {
 
     this._countryService.searchCapital(this.termino)
       .subscribe(countries => {
-        console.log(countries);
         this.countries = countries;
       }, (err) => {
         this.hasError = true;
