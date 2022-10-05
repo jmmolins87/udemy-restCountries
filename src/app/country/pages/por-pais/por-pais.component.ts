@@ -23,7 +23,6 @@ export class PorPaisComponent {
     
     this._countryService.searchCountry(this.termino)
     .subscribe( countries => {
-      console.log( countries );
       this.countries = countries;
     },(err) => {
       this.hasError = true;
