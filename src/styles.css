@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* *** Global styles *** */
+body {
+    background: #fafafa;
+}
 .small-flag {
     width: 50px !important;
 }
