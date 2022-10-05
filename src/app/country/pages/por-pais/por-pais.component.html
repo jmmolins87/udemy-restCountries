@@ -10,6 +10,23 @@
             </app-country-input>
         </div>
     </div>
+
+    <ul *ngIf="showSuggeriments" class="list-group">
+        <li 
+            *ngFor="let country of suggerimentsCountries" 
+            (click)="searchSuggermients( termino )" 
+            class="c-pointer list-group-item list-group-item-action">
+            <a [routerLink]="['pais', country.alpha2Code]" class="nav-link"></a>
+            {{ country.name }}
+        </li>
+        <li class="c-pointer list-group-item list-group-item-action">
+            <a 
+                (click)="searchSuggermients( termino )"
+                class="nav-link">
+                Buscar "{{ termino }}"
+            </a>
+        </li>
+    </ul>
     
     <div *ngIf="hasError" class="alert alert-danger mt-25">
         <p class="m-0">No se encontró ningú país llamado: <strong>{{ termino }}</strong></p>
